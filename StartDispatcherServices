@@ -1,0 +1,18 @@
+Call Fn_StartServerServices()
+	
+Public Function Fn_StartServerServices()
+
+	Dim oFolder
+	Set oShell = CreateObject("Wscript.Shell")
+	Set fso = CreateObject("Scripting.FileSystemObject") 
+	Set objShell = Wscript.CreateObject("WScript.Network")		
+	oShell.run "cmd.exe"
+	WScript.sleep 500
+	oShell.Run """C:\apps\siemens\wr\DS\webapp_root\start_rmi.bat"""
+	WScript.sleep 5000
+	oShell.Run """C:\apps\siemens\wr\DS\webapp_root\start_server.bat"""
+	WScript.sleep 5000
+	Set oShell = Nothing
+	WScript.Quit
+	
+End Function
